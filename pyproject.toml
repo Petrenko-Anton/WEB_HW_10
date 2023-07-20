@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "hw-10"
+version = "0.1.0"
+description = ""
+authors = ["Nton118 <114150459+Nton118@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "hw_10"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.3"
+sqlalchemy = "^2.0.19"
+mongoengine = "^0.27.0"
+scrapy = "^2.9.0"
+psycopg2 = "^2.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

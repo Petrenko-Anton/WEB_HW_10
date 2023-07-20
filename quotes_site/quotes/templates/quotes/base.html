@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href = {% static 'quotes/style.css' %}>
+    <title>Quotes</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row header-box">
+            <div class="col-md-8">
+                <h1>
+                    <a href="/" style="text-decoration: none">Quotes site</a>
+                </h1>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <a href="/users/registration">Register</a>
+                    <a href="/users/login">Login</a>
+                    <a href="/users/logout">Logout</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    {% block content %} {% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                Quotes from: <a href="http://quotes.toscrape.com">Quotes.Toscrape.com</a>
+            </p>
+            <p class="copyright">
+                Copied with <span class="zyte">❤</span> by Anton Petrenko
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
