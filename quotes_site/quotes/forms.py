@@ -2,8 +2,6 @@ from django.forms import ModelForm, CharField, TextInput, ModelMultipleChoiceFie
 from .models import Author, Quote, Tag
 
 
-
-
 class QuoteForm(ModelForm):
     quote = CharField(min_length=5, required=True, widget=TextInput(attrs={'class': 'form-control'}))
     tags = ModelMultipleChoiceField(required=True, queryset=Tag.objects.all(), widget=SelectMultiple)
@@ -23,3 +21,10 @@ class AuthorForm(ModelForm):
     class Meta:
         model = Author
         fields = ['fullname', 'born_date', 'born_location', 'description']
+
+class TagForm(ModelForm):
+    name = CharField(max_length=40, min_length=2, widget=TextInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = Tag
+        fields = ['name']

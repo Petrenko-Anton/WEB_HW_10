@@ -21,7 +21,7 @@ class Tag(models.Model):
 
 class Quote(models.Model):
     quote = models.TextField()
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, db_table='quote_tag_association')
     author = models.ForeignKey(Author, on_delete=models.CASCADE, default=None, null=True)
 
     class Meta:
