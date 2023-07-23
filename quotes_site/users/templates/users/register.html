@@ -1,7 +1,7 @@
 {% extends "quotes/base.html" %}
 {% block content %}
- <div class="container mt-3">
-    <h2>Register User</h2>
+ <div class="container mt-1">
+    <h3>Register User</h3>
     {%if form.errors and form.non_field_errors %}
     <span class="alert alert-danger" role="alert">{{form.non_field_errors}}</span>
     {% endif %}
@@ -47,6 +47,11 @@
             <button type="submit" class="btn btn-primary">Send</button>
             <button type="reset" class="btn btn-primary">Reset</button>
         </div>
+       <div class="mb-3">
+           <p>
+            lowest line
+           </p>
+       </div>
     </form>
  </div>
 
