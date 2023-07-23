@@ -19,15 +19,14 @@
                     <a href="/" style="text-decoration: none">Quotes site</a>
                 </h1>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <p>
                     {% if not user.is_authenticated %}
                     <a href="/users/registration">Register</a>
                     <a href="/users/login">Login</a>
                     {% else %}
-                    <a href="/author/add">Add Author</a>
+                    <a href="/add_author">Add Author</a>
                     <a href="/quote/add">Add Quote</a>
-                    <a href="/tag/add">Add Tag</a>
                     <a href="/users/logout">Logout</a>
                     {% endif %}
                 </p>
@@ -35,7 +34,6 @@
         </div>
     </div>
     {% block content %} {% endblock %}
-
     <footer class="footer">
         <div class="container">
             <p class="text-muted">

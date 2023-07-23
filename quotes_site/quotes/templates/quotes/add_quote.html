@@ -21,16 +21,10 @@
           </label>
           <span>{{form.errors.quote}}</span>
         </div>
-        <div class="input group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Tags</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-              {% for tag in form.tags %}
-                <option value={{tag}}>{{tag.name}}</option>
-              {% endfor %}}
-          </select>
+        <div class="mb-3">
+          <label  class="form-label">Tags (separate by comma)
+          {{ form.tags }}
+          </label>
           <span>{{form.errors.tags}}</span>
         </div>
         <div class="mb-3">

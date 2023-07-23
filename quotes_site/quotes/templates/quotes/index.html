@@ -13,6 +13,11 @@
             <span>by <small class="author" itemprop="author">{{quote.author.fullname}}</small>
             <a href="/author/{{quote.author.fullname}}">(about)</a>
             </span>
+            {% if user.is_authenticated %}
+                <div class="mb-3">
+                    <a href="{% url 'quotes:del_quote' quote.id %}" class="btn btn-danger">Delete Quote</a>
+                </div>
+            {% endif %}
             <div class="tags">
                 Tags:
                 <meta class="keywords" itemprop="keywords" content="">

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
+from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Count
 
@@ -49,20 +49,32 @@ def add_quote(request):
         form = QuoteForm(request.POST, instance=Quote())
         if form.is_valid():
             quote = form.save(commit=False)
-            quote.quote = request.quote
-            quote.tags = request.tags
-            quote.author = request.author
-            quote.save()
-            if quote.author not in Author.objects.fullname:
+            quote.quote = form.cleaned_data.get('quote')
+            tags = form.cleaned_data.get('tags')
+            quote.author = form.cleaned_data.get('author')
+            if not Author.objects.filter(fullname=quote.author.fullname).exists:
                 return redirect(to='quotes:add_author', context={'title': 'add new author!',
                                                                  'author': quote.author.fullname})
+            quote.save()
+            for tag_name in tags:
+                tag, created = Tag.objects.get_or_create(name=tag_name)
+
+                if created:
+                    tag.save()
+                quote.tags.add(tag)
+
+            # Зберегти зміни в зв'язку з тегами
+            quote.save()
             return redirect(to='quotes:main')
+
     return render(request, 'quotes/add_quote.html', context={'title': 'Add Quote', 'form': form})
 
 
 @login_required
-def del_quote(request):
-    ...
+def del_quote(request, qt_id):
+    quote = Quote.objects.filter(pk=qt_id)
+    quote.delete()
+    return redirect(to="quotes:main")
 
 
 @login_required
@@ -72,9 +84,9 @@ def add_author(request):
         form = AuthorForm(request.POST, instance=Author())
         if form.is_valid():
             author = form.save(commit=False)
-            author.fullname = request.fullname
-            author.born_date = request.born_date
-            author.born_location = request.born_location
+            author.fullname = form.cleaned_data.get('fullname')
+            author.born_date = form.cleaned_data.get('born_date')
+            author.born_location = form.cleaned_data.get('born_location')
             author.save()
             return redirect(to='quotes:main')
     return render(request, 'quotes/add_author.html', context={'title': 'Add Author', 'form': form})
@@ -82,17 +94,12 @@ def add_author(request):
 
 
 @login_required
-def del_author(request):
-    ...
+def del_author(request, au_id):
+    author = Author.objects.filter(pk=au_id)
+    author.delete()
+    return redirect(to="quotes:main")
 
 
-@login_required
-def add_tag(request):
-    ...
 
-
-@login_required
-def del_tag(request):
-    ...
 
 

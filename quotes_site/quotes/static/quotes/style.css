@@ -223,7 +223,7 @@ ul.pager {
 }
 
 .sticky-bottom {
-    position: sticky;
+    position: static;
     bottom: 0;
     margin-top: -20px;
 }
