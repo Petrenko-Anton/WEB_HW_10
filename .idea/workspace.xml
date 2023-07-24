@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="980ff58a-c5df-47cc-bff6-43544406cc40" name="Changes" comment="3">
-      <change beforePath="$PROJECT_DIR$/.idea/HW_10.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW_10.iml" afterDir="false" />
+    <list default="true" id="980ff58a-c5df-47cc-bff6-43544406cc40" name="Changes" comment="4">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quotes_site/quotes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/static/quotes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/static/quotes/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/add_author.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/add_author.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/add_quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/add_quote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/author.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/author.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/templates/quotes/quote.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes_site/quotes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quotes_site/quotes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes_site/quotes/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,17 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/programming/GoIT Python/WEB/HW_10/quotes_site/quotes_site",
-    "list.type.of.created.stylesheet": "CSS",
-    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/programming/GoIT Python/WEB/HW_10/quotes_site/quotes_site&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.django.DjangoModulesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="djaNgo HW" type="Python.DjangoServer" factoryName="Django server">
       <module name="HW_10" />
@@ -90,7 +83,9 @@
       <option name="presentableId" value="Default" />
       <updated>1689748483094</updated>
       <workItem from="1689748497609" duration="34518000" />
-      <workItem from="1689875568492" duration="70820000" />
+      <workItem from="1689875568492" duration="71180000" />
+      <workItem from="1690145531691" duration="799000" />
+      <workItem from="1690180959026" duration="2039000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1689888623967</created>
@@ -113,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690127756706</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="4">
+      <created>1690144280619</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690144280619</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,27 +136,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="3" />
-    <option name="LAST_COMMIT_MESSAGE" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/quotes_site/quotes/views.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/quotes_site/quotes/forms.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/quotes_site/quotes/forms.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="4" />
+    <option name="LAST_COMMIT_MESSAGE" value="4" />
   </component>
 </project>

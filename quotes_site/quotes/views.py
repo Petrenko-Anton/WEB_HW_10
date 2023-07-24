@@ -95,7 +95,11 @@ def add_author(request):
 
 @login_required
 def del_author(request, au_id):
-    author = Author.objects.filter(pk=au_id)
+    author = Author.objects.get(pk=au_id)
+    quotes = Quote.objects.filter(author__fullname=author.fullname)
+    for quote in quotes:
+        quote.delete()
+
     author.delete()
     return redirect(to="quotes:main")
 

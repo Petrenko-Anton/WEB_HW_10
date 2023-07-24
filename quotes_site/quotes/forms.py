@@ -43,15 +43,3 @@ class AuthorForm(ModelForm):
         model = Author
         fields = ['fullname', 'born_date', 'born_location', 'description']
 
-class TagForm(ModelForm):
-    name = CharField(max_length=40, min_length=2, widget=TextInput(attrs={'class': 'form-control'}))
-
-    def clean_name(self):
-        name = self.cleaned_data.get('name')
-        if Tag.objects.filter(name=name).exists():
-            raise ValidationError("Such Tag already exists in the database")
-        return name
-
-    class Meta:
-        model = Tag
-        fields = ['name']
