@@ -4,8 +4,15 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Count
 
+from pathlib import Path
+from django.conf import settings
+
+import subprocess
 from .models import Author, Quote, Tag
 from .forms import AuthorForm, QuoteForm
+
+
+base_dir = settings.BASE_DIR
 
 
 def find_top_ten_tags():
@@ -74,6 +81,7 @@ def add_quote(request):
 def del_quote(request, qt_id):
     quote = Quote.objects.filter(pk=qt_id)
     quote.delete()
+    messages.error(request, 'quote was deleted')
     return redirect(to="quotes:main")
 
 
@@ -92,18 +100,34 @@ def add_author(request):
     return render(request, 'quotes/add_author.html', context={'title': 'Add Author', 'form': form})
 
 
-
 @login_required
 def del_author(request, au_id):
     author = Author.objects.get(pk=au_id)
+    name = author.fullname
     quotes = Quote.objects.filter(author__fullname=author.fullname)
     for quote in quotes:
         quote.delete()
 
     author.delete()
+
+    messages.error(request, f'Author {name} and all his quotes were deleted')
     return redirect(to="quotes:main")
 
 
+def re_scrape(request):
+    scrapy_quotes = Path(base_dir).parent / 'utils' / 'scrapy_quotes.py'
+    json2mongodb = Path(base_dir).parent / 'utils' / 'json2mongodb.py'
+    mongo2postgres = Path(base_dir).parent / 'utils'/ 'mongo2postgres.py'
+    try:
+        subprocess.run(['python', scrapy_quotes], shell=True)
+        subprocess.run(['python', json2mongodb], shell=True)
+        subprocess.run(['python', mongo2postgres], shell=True)
 
+    except Exception as err:
+        messages.error(request, f'quotes.toscrape.com was not re-scraped! {err}')
+
+    messages.success(request, 'quotes.toscrape.com was re-scraped succesfully')
+
+    return redirect(to="quotes:main")
 
 

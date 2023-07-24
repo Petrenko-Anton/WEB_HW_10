@@ -1,9 +1,12 @@
 from mongoengine import Document
 from mongoengine.fields import DateTimeField, ListField, StringField, ReferenceField
 from sqlalchemy import Column, Integer, String, Table, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
-from connect import engine
+from sqlalchemy.orm import relationship, sessionmaker, declarative_base
+from . import connection
+
+
+
+
 
 
 class Author(Document):
@@ -55,6 +58,6 @@ class PAuthor(Base):
     quotes = relationship('PQuote', back_populates='author')
 
 
-Base.metadata.create_all(engine)
-DBSession = sessionmaker(bind=engine)
+Base.metadata.create_all(connection.engine)
+DBSession = sessionmaker(bind=connection.engine)
 session = DBSession()

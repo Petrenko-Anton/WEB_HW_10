@@ -86,7 +86,12 @@ class QuotesSpider(scrapy.Spider):
         )
 
 
-if __name__ == "__main__":
+def main():
     process = CrawlerProcess()
     process.crawl(QuotesSpider)
     process.start()
+
+
+if __name__ == "__main__":
+    main()
+
